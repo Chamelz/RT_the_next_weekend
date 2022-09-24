@@ -14,10 +14,10 @@
 using namespace std;
 
 // Image
-const auto aspect_ratio = 16.0 / 9.0;
-const int img_width = 400;
-const int img_height = static_cast<int>(img_width / aspect_ratio);
-const int samples_per_pixel = 100;
+auto aspect_ratio = 16.0 / 9.0;
+int img_width = 400;
+int img_height = static_cast<int>(img_width / aspect_ratio);
+int samples_per_pixel = 100;
 const int max_depth = 50;
 
 color ray_color(const ray& r, const hittable& world, int depth) {
@@ -111,8 +111,7 @@ int main() {
     auto dist_to_focus = 10.0;
     auto aperture = 0.1;
 
-    camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
-
+    camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
     // Render
     ofstream Image;
     Image.open("../pic/Image_1_Bouncing_spheres.ppm");
