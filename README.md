@@ -6,7 +6,7 @@ Citing:
 
 ## Note
 
-### 3.1 Bounding Volume Hierarchies (BVH)
+### 3 Bounding Volume Hierarchies (BVH)
 
 #### The Key Idea
 
@@ -60,4 +60,6 @@ bool overlap(d, D, e, E, f, F){
     return (f < F);
 }
 ```
+
+### 4. Solid Textures
 

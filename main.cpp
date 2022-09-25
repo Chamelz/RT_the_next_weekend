@@ -11,6 +11,7 @@
 #include "material.h"
 #include "moving_sphere.h"
 #include "bvh.h"
+#define PICPATH "../pic/Image_2_Spheres_on_checkered_ground.ppm"
 
 using namespace std;
 
@@ -45,8 +46,10 @@ color ray_color(const ray& r, const hittable& world, int depth) {
 hittable_list random_scene() {
     hittable_list world;
 
-    auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
-    world.add(make_shared<sphere>(point3(0,-1000,0), 1000, ground_material));
+    // auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
+    // world.add(make_shared<sphere>(point3(0,-1000,0), 1000, ground_material));
+    auto checker = make_shared<checker_texture>(color(0.2, 0.3, 0.1), color(0.9, 0.9, 0.9));
+    world.add(make_shared<sphere>(point3(0,-1000,0), 1000, make_shared<lambertian>(checker)));
 
     for (int a = -11; a < 11; a++) {
         for (int b = -11; b < 11; b++) {
@@ -115,7 +118,7 @@ int main() {
     camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
     // Render
     ofstream Image;
-    Image.open("../pic/Image_2_Bouncing_spheres_with_bvh.ppm");
+    Image.open(PICPATH);
     if (Image.fail())
     {
         cout << "Unable to create image.ppm" << endl;
