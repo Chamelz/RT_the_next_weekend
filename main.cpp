@@ -10,6 +10,7 @@
 #include "camera.h"
 #include "material.h"
 #include "moving_sphere.h"
+#include "bvh.h"
 
 using namespace std;
 
@@ -114,7 +115,7 @@ int main() {
     camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
     // Render
     ofstream Image;
-    Image.open("../pic/Image_1_Bouncing_spheres.ppm");
+    Image.open("../pic/Image_2_Bouncing_spheres_with_bvh.ppm");
     if (Image.fail())
     {
         cout << "Unable to create image.ppm" << endl;
