@@ -5,6 +5,7 @@
 #ifndef RAY_TRACING_IN_ONE_WEEKEND_TEXTURE_H
 #define RAY_TRACING_IN_ONE_WEEKEND_TEXTURE_H
 #include "rtweekend.h"
+#include "perlin.h"
 class texture{
 public:
     virtual color value(double u, double v, const point3& p) const = 0;
@@ -40,5 +41,16 @@ public:
 private:
     shared_ptr<texture> odd;
     shared_ptr<texture> even;
+};
+
+class noise_texture : public texture{
+public:
+    noise_texture(){}
+    virtual color value(double u, double v, const point3& p) const override{
+        return color(1, 1, 1) * noise.nosie(p);
+    }
+
+public:
+    perlin noise;
 };
 #endif //RAY_TRACING_IN_ONE_WEEKEND_TEXTURE_H
