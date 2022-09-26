@@ -4,10 +4,12 @@
 
 #ifndef RAY_TRACING_IN_ONE_WEEKEND_RTWEEKEND_H
 #define RAY_TRACING_IN_ONE_WEEKEND_RTWEEKEND_H
+#define STB_IMAGE_IMPLEMENTATION
 #include <cmath>
 #include <limits>
 #include <memory>
 #include <cstdlib>
+#include <stb_image.h>
 
 // Using
 using std::sqrt;
