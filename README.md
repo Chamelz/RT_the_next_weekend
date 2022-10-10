@@ -63,3 +63,9 @@ bool overlap(d, D, e, E, f, F){
 
 ### 4. Solid Textures
 
+### 7. Rectangles and Lights
+
+Light sources in "RT_in_one_weekend" are abstract, like points in space, or directions.
+Modern approaches have more physically based lights, which have position and size.
+To realize these physically based lights, we need to be able to take any regular object and turn it into something that emits light into our scene.
+In this chapter, 
